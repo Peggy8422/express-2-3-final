@@ -27,14 +27,11 @@ app.get('/:page', (req, res) => {
   let path_3 = false
   if (currentPage === 'about') {
     path_1 = true
-  }
-  if (currentPage === 'portfolio') {
+  } else if (currentPage === 'portfolio') {
     path_2 = true
-  }
-  if (currentPage === 'contact') {
+  } else if (currentPage === 'contact') {
     path_3 = true
-  }
-  
+  } 
   const firstLetter = req.params.page.charAt(0)
   const title = req.params.page.replace(firstLetter, firstLetter.toUpperCase())
   res.render('page', {pageTitle: title, path_1, path_2, path_3})
